@@ -27,6 +27,13 @@ cache:
   directories:
     - .autoconf
     - $HOME/.m2
+    
+before_script:
+  - |
+    if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
+      export JAVA_HOME=$(/usr/libexec/java_home);
+    fi
+    
 
 script:
   - mvn -B -V -U -C -Poss-release clean verify org.glassfish.copyright:glassfish-copyright-maven-plugin:check -Dgpg.skip=true
