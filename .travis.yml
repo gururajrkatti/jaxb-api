@@ -31,7 +31,8 @@ cache:
 before_script:
   - |
     if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
-      export JAVA_HOME=$(/usr/libexec/java_home);
+      which java
+      export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-hotspot-ppc64el;
     fi
     
 
