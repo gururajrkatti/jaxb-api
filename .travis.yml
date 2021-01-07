@@ -9,18 +9,19 @@
 
 language: java
 
-arch:
-  - amd64
-  - ppc64le
-
 dist: bionic
 
 git:
   depth: false
-
-jdk:
-  - oraclejdk11
-  - oraclejdk14
+  
+jobs:
+  include:
+    - arch: amd64
+      jdk: oraclejdk11
+    - arch: amd64
+      jdk:  oraclejdk14
+    - arch: ppc64le
+      jdk: openjdk11
 
 cache:
   directories:
