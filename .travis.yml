@@ -29,16 +29,10 @@ cache:
     - $HOME/.m2
     
 before_script:
-  - echo $JAVA_HOME
   - |
     if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
-      #export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-hotspot-ppc64el;
-      #jdk_switcher use openjdk11
-      export JAVA_HOME=$HOME/openjdk11
-      echo $JAVA_HOME
+      export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-hotspot-ppc64el;
     fi
  
-    
-
 script:
   - mvn -B -V -U -C -Poss-release clean verify org.glassfish.copyright:glassfish-copyright-maven-plugin:check -Dgpg.skip=true
